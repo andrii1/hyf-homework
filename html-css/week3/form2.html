@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Form</title>
+</head>
+<body>
+  <header>
+          <div class="logo">
+
+            <img src="images/logo.jpeg">
+
+          </div>
+          <nav>
+            <ul>
+                <li><a href="#" target="_blank">home</a></li>
+                <li><a href="#" target="_blank">about</a></li>
+                <li><a href="#" target="_blank">team</a></li>
+            </ul>
+          </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h2>Sign up to yourcustomtailor.com</h2>
+    </section>
+    <section class="questions">
+      <h3>
+        Step 2/4 - tell us who you are?
+      </h3>
+      <div>
+        <p>Progress</p>
+        <div class="progress-bar">
+          <div class="progress" style="width:66%"></div>
+        </div>
+      </div>
+      <div>
+        <form action="form3.html" method="get">
+
+    <div class="container-info">
+      <div>
+      <label for="email">Email*</label>
+      <input type="email" name="email" id="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$" required/>
+      </div>
+      <div>
+      <label for="phone">Phone</label>
+      <input type="tel" name="phone" id="phone" pattern="^[0-9]{8}$" placeholder="12345678"/>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <label for="password">Password*</label>
+        <input type="password" name="password" id="password" pattern="^[A-Za-z]+$" minlength="1" required/>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <label for="password" style="font-size: 0.9rem;">Re-enter Password*</label>
+        <input type="password" name="password" id="password" minlength="1" pattern="^[A-Za-z]+$" required/>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <p>I want to sign up for the newsletter</p>
+      <label for="weekly">Weekly news</label>
+      <input type="radio" id="weekly" name="newsletter" value="weekly" checked required>
+      <label for="monthly">Monthly news</label>
+      <input type="radio" id="monthly" name="newsletter" value="monthly">
+      <label for="no">Don't send me news</label>
+      <input type="radio" id="no" name="newsletter" value="no">
+
+    </div>
+    <div class="container-button">
+    <input type="submit" value="Next step">
+    </div>
+  </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+
+  </footer>
+
+</body>
+</html>

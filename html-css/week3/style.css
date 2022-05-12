@@ -1,0 +1,263 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.progress-bar {
+  background-color: #eee;
+  border-radius: 2rem;
+
+}
+
+.progress {
+  height:24px;
+  background-color: #333;
+  animation: progress 1500ms ease-in 1;
+  border-radius: 2rem;
+  background-color: rgb(43, 194, 83);
+  background-image: linear-gradient(center bottom,
+    rgb(43, 194, 83) 37%,
+    rgb(84, 240, 84) 69%);
+    box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding:1rem 2rem;
+}
+
+header img {
+  width:30%;
+}
+
+nav ul {
+  display:flex;
+  list-style: none;
+}
+
+nav ul li {
+  padding-right: 2rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+main {
+  margin:0 auto;
+  width: 700px;
+  margin-bottom: 3rem;
+}
+.intro, .questions {
+  margin-left: 2rem;
+}
+
+.questions > div {
+  margin-top: 2rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"] {
+  height: 30px;
+  width: 180px;
+}
+
+select {
+
+  height: 33px;
+  width: 190px;
+}
+
+form > div {
+  margin-top:1rem;
+}
+
+.container-info {
+  display: flex;
+
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.card > div {
+  margin:0.3rem;
+}
+
+
+/* Inserting this collapsed row between two flex items will make
+ * the flex item that comes after it break to a new row */
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.container {
+  display: flex;
+  text-align: right;
+}
+
+.container > div {
+  flex:0 0 50%;
+}
+
+.container-info > div {
+flex:0 0 50%;
+width: 100%;
+text-align: right;
+}
+
+.container-profile div {
+  text-align: right;
+}
+
+.container-button {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+input[type="submit"] {
+  padding:1rem;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+label {
+  font-weight: bold;
+}
+
+.container-profile p {
+  font-size: 0.6rem;
+font-weight: 100;
+font-style: italic;
+}
+
+.container-profile {
+  display: flex;
+
+}
+
+.container-profile > div:nth-child(1) {
+  flex: 0 0 35%;
+}
+
+.container-profile > div:nth-child(2) {
+  flex: 0 0 65%;
+  display: flex;
+  justify-content: right;
+}
+
+.newsletter > input {
+  margin-right: 1rem;
+}
+
+.styles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.styles div {
+  text-align: right;
+}
+
+.shipping {
+  display: inline;
+  text-align: left;
+}
+
+@media only screen and (max-width: 480px) {
+  header img {
+    width: 30%;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+  nav {
+    padding:0;
+  }
+
+  header {
+    flex-direction: column;
+  }
+
+  nav ul {
+    padding-left:1rem;
+  }
+
+  main {
+    width: 380px;
+    margin-bottom: 3rem;
+
+  }
+
+  .container-info {
+    flex-direction: column;
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .container > div {
+    flex: 1;
+  }
+
+  .container-info > div {
+    flex: 1;
+    text-align: left;
+    margin-top:1rem
+  }
+
+  .container-profile {
+
+    flex-direction: column;
+
+  }
+
+  .container-profile div {
+    text-align: left;
+  }
+
+  textarea {
+    width:70%
+  }
+
+  .container-profile > div:nth-child(1) {
+    flex: 1;
+  }
+
+  .container-profile > div:nth-child(2) {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+  }
+
+  .container-button {
+    text-align: left;
+  }
+  label {
+    display: block;
+    clear: both;
+  }
+
+  .styles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3px;
+  }
+
+  .styles div {
+    text-align: left;
+  }
+
+  .styles img {
+    width:70%
+  }
+}
