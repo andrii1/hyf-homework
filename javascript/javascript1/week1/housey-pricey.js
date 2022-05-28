@@ -1,21 +1,10 @@
-//housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
-//let width
-//let depth
-//let height
-//let volumeInMeters = width * depth * height
-//function calculateHousePrice(volumeInMeters, gardenSizeInM2) {
-//  return
-//}
 
-let volumeInMetersPeter = 8 * 10 * 10;
-let gardenSizeInM2Peter = 100;
-let volumeInMetersJulia = 5 * 11 * 8;
-let gardenSizeInM2Julia = 70;
-let housePricePeter = volumeInMetersPeter * 2.5 * 1000 + gardenSizeInM2Peter * 300;
-let housePriceJulia = volumeInMetersJulia * 2.5 * 1000 + gardenSizeInM2Julia * 300;
-let houseCostPeter = 2500000;
-let houseCostJulia = 1000000;
-if (houseCostPeter > housePricePeter) { console.log("Peter is paying too much") }
-else if (houseCostPeter === housePricePeter) { console.log("Peter is paying a good price") }
+const volumeInMeters = [8 * 10 * 10, 5 * 11 * 8];
+const gardenSizeInM2 = [100, 70];
+const housePricePeter = volumeInMeters[0] * 2.5 * 1000 + gardenSizeInM2[0] * 300;
+const housePriceJulia = volumeInMeters[1] * 2.5 * 1000 + gardenSizeInM2[1] * 300;
+const houseCost = [2500000, 1000000];
+if (houseCost[0] > housePricePeter) { console.log("Peter is paying too much") }
+else if (houseCost[0] === housePricePeter) { console.log("Peter is paying a good price") }
 else { console.log("Peter is paying too little") }
-if (houseCostJulia > housePriceJulia) { console.log("Julia is paying too much") } else if (houseCostJulia === housePriceJulia) { console.log("Julia is paying a good price")} else { console.log("Julia is paying too little")}
+if (houseCost[1] > housePriceJulia) { console.log("Julia is paying too much") } else if (houseCost[1] === housePriceJulia) { console.log("Julia is paying a good price")} else { console.log("Julia is paying too little")}

@@ -1,4 +1,4 @@
-let yearOfBirth = 1990;
-let yearFuture = 2025;
-let age = yearFuture - yearOfBirth;
-console.log("You will be " + age + " years old in " + yearFuture )
+const yearOfBirth = 1990;
+const yearFuture = 2025;
+const age = yearFuture - yearOfBirth;
+console.log(`You will be ${age} years old in ${yearFuture}`)
