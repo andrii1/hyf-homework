@@ -1,2 +1,0 @@
-let yearOfBirth
-let yearFuture
