@@ -88,3 +88,45 @@ console.log(addStudentToClass("Andrii"))
 console.log(addStudentToClass("Igor"))
 console.log(addStudentToClass("Queen"))
 console.log(getNumberOfStudents())
+
+// CANDY HELPER
+const boughtCandyPrices = [];
+function addCandy(candyType, weight) {
+
+  switch (candyType) {
+  case 'Sweet':
+    boughtCandyPrices.push(weight*0.5)
+    break;
+  case 'Chocolate':
+    boughtCandyPrices.push(weight*0.7)
+    break;
+  case 'Toffee':
+    boughtCandyPrices.push(weight*1.1)
+    break;
+  case 'Chewing-gum':
+    boughtCandyPrices.push(weight*0.03)
+    break;
+}
+  return boughtCandyPrices
+}
+addCandy("Toffee", 20);
+addCandy("Sweet", 10);
+const amountToSpend = Math.floor(Math.random() * 100)
+
+function canBuyMoreCandy(boughtCandyPrices, amountToSpend) {
+  let count = 0;
+  for (let j=0; j<boughtCandyPrices.length; j++)
+   {
+    count += boughtCandyPrices[j];
+    console.log('test',boughtCandyPrices[j])
+   }
+
+  if (count >= amountToSpend) {
+    console.log("Enough candy for you!")
+  } else {
+    console.log("You can buy more, so please do!")
+  }
+
+}
+
+canBuyMoreCandy(boughtCandyPrices, amountToSpend)
