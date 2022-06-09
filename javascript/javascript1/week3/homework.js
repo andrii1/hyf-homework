@@ -105,3 +105,70 @@ function logOutSeriesText(seriesDurations) {
 }
 
 logOutSeriesText(seriesDurations);
+
+//NONON0NOYES (NOTE TAKING APP)
+
+const notes = [];
+function saveNote(content, id) {
+	if (typeof content !== "string" || content === "") {
+		throw new Error("content must be a non-empty string");
+	}
+	if (typeof id !== "number" || id === "") {
+		throw new Error("id must be a non-empty number");
+	}
+	notes.push({
+		content,
+		id,
+	});
+}
+
+saveNote("Pick up groceries", 1);
+saveNote("Do laundry", 2);
+
+console.log(notes);
+
+function getNote(id) {
+	// your code here
+	if (typeof id !== "number" || id === "") {
+		throw new Error("id must be a non-empty number");
+	}
+	for (let i = 0; i < notes.length; i++) {
+		if (notes[i].id === id) {
+			return notes[i];
+		}
+	}
+}
+
+const firstNote = getNote(1);
+console.log(firstNote); // {content: 'Pick up groceries', id: 1}
+
+function logOutNotesFormatted() {
+	// your code here
+	for (let j = 0; j < notes.length; j++) {
+		console.log(
+			`The note with id: ${notes[j].id}, has the following note text: ${notes[j].content}`
+		);
+	}
+}
+
+logOutNotesFormatted(); // should log out the text below
+
+// The note with id: 1, has the following note text: Pick up groceries
+// The note with id: 2, has the following note text: Do laundry
+
+//Delete note
+
+function deleteNote(id) {
+	if (typeof id !== "number" || id === "") {
+		throw new Error("id must be a non-empty number");
+	}
+	for (let t = 0; t < notes.length; t++) {
+		if (notes[t].id === id) {
+			notes.splice(id - 1, 1);
+		}
+	}
+}
+
+deleteNote(2);
+
+console.log(notes);
