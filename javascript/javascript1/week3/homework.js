@@ -172,3 +172,97 @@ function deleteNote(id) {
 deleteNote(2);
 
 console.log(notes);
+
+//CACTUSIO-INTERACTIVE (SMART PHONE USAGE APP)
+
+const activities = [];
+let limit;
+
+function addActivity(activity, duration) {
+	if (typeof activity !== "string") {
+		throw new Error("Activity must be a string");
+	}
+	if (typeof duration !== "number") {
+		throw new Error("Duration must be a number");
+	}
+
+	const today = new Date();
+	const date = today.toLocaleDateString("en-US");
+
+	const oneActivity = {
+		date,
+		activity,
+		duration,
+	};
+
+	activities.push(oneActivity);
+}
+
+addActivity("Youtube", 30);
+
+console.log(activities);
+
+function showStatus(activities) {
+	let numberOfActivities = 0;
+	let durationOfActivities = 0;
+	const today = new Date();
+	const date = today.toLocaleDateString("en-US");
+	for (let i = 0; i < activities.length; i++) {
+		if (activities[0].date === date) {
+			numberOfActivities++;
+			durationOfActivities += activities[i].duration;
+		}
+	}
+	if (numberOfActivities === 0) {
+		console.log("Add some activities before calling showStatus");
+	} else if (durationOfActivities > limit) {
+		console.log("You have reached your limit, no more smartphoning for you!");
+	} else {
+		console.log(
+			`You have added ${numberOfActivities} activities. They amount to ${durationOfActivities} min. of usage`
+		);
+	}
+}
+
+showStatus(activities); // will log out this "You have added 3 activities. They amount to 78 min. of usage"
+
+function setLimit(minutes) {
+	limit = minutes; // I was thinking maybe creating array [activities, limit] or attaching limit to every activity e.g. (date: '6/9/2022', activity: 'Youtube', duration: 30, limit: 50)
+}
+
+setLimit(300);
+addActivity("TikTok", 40);
+showStatus(activities);
+addActivity("Instagram", 50);
+showStatus(activities); // shows that you reached the limit
+
+function popularActivity() {
+	let popularActivityDuration = 0;
+	for (let i = 0; i < activities.length; i++) {
+		if (activities[i].duration > popularActivityDuration) {
+			popularActivityDuration = activities[i].duration;
+		}
+	}
+
+	for (let j = 0; j < activities.length; j++) {
+		if (activities[j].duration === popularActivityDuration) {
+			console.log(
+				`Your most popular activity is ${activities[j].activity}. You have spent ${activities[j].duration} minutes on it!`
+			);
+		}
+	}
+}
+
+popularActivity();
+
+//extra feature
+function updateActivityDuration(name, duration) {
+	for (let t = 0; t < activities.length; t++) {
+		if (activities[t].activity === name) {
+			activities[t].duration = duration;
+		}
+	}
+}
+
+updateActivityDuration("TikTok", 10);
+showStatus(activities);
