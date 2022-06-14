@@ -78,14 +78,6 @@ const seriesDurations = [
 	},
 ];
 
-/*seriesDurations.push({
-	title: "House of Cards",
-	days: 2,
-	hours: 16,
-	minutes: 29,
-});
-*/
-
 function logOutSeriesText(seriesDurations) {
 	// write code here
 	let sumPercentage = 0;
@@ -93,8 +85,7 @@ function logOutSeriesText(seriesDurations) {
 		const timeInMinutes =
 			seriesDurations[i].days * 24 * 60 +
 			seriesDurations[i].hours * 60 +
-			seriesDurations[i].minutes * 60;
-		console.log(timeInMinutes);
+			seriesDurations[i].minutes;
 		const percentage = (timeInMinutes / (80 * 525600)) * 100;
 		console.log(
 			`${seriesDurations[i].title} took ${percentage.toFixed(4)} of my life`
