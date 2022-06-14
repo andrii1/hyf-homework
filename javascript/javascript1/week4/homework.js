@@ -53,13 +53,16 @@ function getReply(command) {
 			"November",
 			"December",
 		];
-		return ` Today is ${today.getDate()} of ${
+		return `Today is ${today.getDate()} of ${
 			monthNames[today.getMonth()]
 		} ${today.getFullYear()}`;
 	}
-	if (command === "what is 3 + 3") {
+	if (command.includes("what is")) {
+		const stringOperations = command.replace(/what is/, "");
+		return eval(stringOperations);
 	}
-	if (command === "Set a timer for 4 minutes") {
+	if (command.includes("Set a timer for")) {
+		setTimeout(alert("Timer done"), 4000);
 	}
 }
 
@@ -72,3 +75,5 @@ console.log(getReply("Add singing in the shower to my todo"));
 console.log(getReply("Remove fishing from my todo"));
 console.log(getReply("What is on my todo?"));
 console.log(getReply("What day is it today?"));
+console.log(getReply("what is 6*3"));
+//console.log(getReply("Set a timer for 4 minutes"));
