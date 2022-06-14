@@ -58,11 +58,32 @@ function getReply(command) {
 		} ${today.getFullYear()}`;
 	}
 	if (command.includes("what is")) {
-		const stringOperations = command.replace(/what is/, "");
-		return eval(stringOperations);
+		const stringOperations = command.replace("what is ", "");
+		const array = stringOperations.split("");
+		if (array[1] === "+") {
+			return array[0] + array[2];
+		} else if (array[1] === "-") {
+			return array[0] - array[2];
+		} else if (array[1] === "*") {
+			return array[0] * array[2];
+		} else if (array[1] === "/") {
+			return array[0] / array[2];
+		}
+		//return eval(stringOperations);
 	}
 	if (command.includes("Set a timer for")) {
-		setTimeout(alert("Timer done"), 4000);
+		let timeOnly = command.replace(/\D/g, "");
+		time = timeOnly * 60000;
+		setTimeout(function () {
+			alert("Timer done");
+		}, time);
+		return "Timer is set";
+	}
+
+	if (command === "What should I wear today?") {
+		const clothes = ["jeans", "shirt", "pants", "hat", "shorts"];
+		const random = clothes[Math.floor(Math.random() * clothes.length)];
+		return `You should wear ${random}`;
 	}
 }
 
@@ -75,5 +96,7 @@ console.log(getReply("Add singing in the shower to my todo"));
 console.log(getReply("Remove fishing from my todo"));
 console.log(getReply("What is on my todo?"));
 console.log(getReply("What day is it today?"));
-console.log(getReply("what is 6*3"));
-//console.log(getReply("Set a timer for 4 minutes"));
+console.log(getReply("what is 9-3"));
+console.log(getReply("Set a timer for 4 minutes"));
+//additional commands
+console.log(getReply("What should I wear today?"));
