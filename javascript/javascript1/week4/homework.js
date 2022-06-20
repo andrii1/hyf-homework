@@ -7,10 +7,10 @@ function getReply(command) {
 		throw new Error("Command must be a non-empty string");
 	}
 
-	if (command === "Hello my name is Benjamin" && name === "") {
-		name = "Benjamin";
-		return "Nice to meet you Benjamin";
-	} else if (command === "Hello my name is Benjamin" && name != "") {
+	if (command.includes("Hello my name is") && name === "") {
+		name = command.substring(command.indexOf("is") + 3);
+		return name;
+	} else if (command.includes("Hello my name is") && name != "") {
 		return "You already added your name";
 	}
 	if (command === "What is my name?" && name != "") {
