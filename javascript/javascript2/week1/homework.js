@@ -1,17 +1,11 @@
 //EXERCISE 1
 
 const danishWords = ["bil", "plante", "kaffe", "bog", "ø", "planetarium"];
-console.log(danishWords.length);
 let shortestWord;
 function findShortestWord(words) {
-  /*for (let i=0;i<words.length;i++) {
-    //console.log(words[i])
-    if (words[i].length<shortestWord.length) {
-      shortestWord = words[i]
-    }
+  if (words === "") {
+    throw new Error("Array can't be empty");
   }
-  console.log(shortestWord);
-  */
   words.reduce(function (a, b) {
     return a.length <= b.length ? (shortestWord = a) : b;
   });
@@ -28,30 +22,39 @@ const danishString2 = "Blå grød med røde bær";
 const danishCharacters = ["æ", "ø", "å"];
 
 function findDanishLetters(string) {
-  const allLettersArray = string.split("");
-  let count1 = 0;
-  let count2 = 0;
-  let count3 = 0;
-  let total = 0;
-  for (let i = 0; i < allLettersArray.length; i++) {
-    for (let j = 0; j < danishCharacters.length; j++) {
-      if (allLettersArray[i] === danishCharacters[j]) {
-        console.log("test1", allLettersArray[i]);
-        console.log("test2", danishCharacters[j]);
-        total++;
-        console.log(total);
-        if (j === 0) {
-          count1++;
-        } else if (j === 1) {
-          count2++;
-        } else if (j === 2) {
-          count3++;
-          //console.log(danishCharacters[j]);
-        }
-      }
-    }
+  const letterAe = danishCharacters[0];
+  const letterO = danishCharacters[1];
+  const letterAo = danishCharacters[2];
+  const countLetterAe = string.split(letterAe).length - 1;
+  const countLetterO = string.split(letterO).length - 1;
+  const countLetterAo = string.split(letterAo).length - 1;
+  let logLetterAe;
+  let logLetterO;
+  let logLetterAo;
+
+  if (countLetterAe != 0) {
+    logLetterAe = `æ: ${countLetterAe}, `;
+  } else {
+    logLetterAe = "";
   }
-  console.log(`{total: ${total}, æ: ${count1}, ø: ${count2}, å: ${count3} }`);
+
+  if (countLetterO != 0) {
+    logLetterO = `ø: ${countLetterO}, `;
+  } else {
+    logLetterO = "";
+  }
+
+  if (countLetterAo != 0) {
+    logLetterAo = `å: ${countLetterAo}`;
+  } else {
+    logLetterAo = "";
+  }
+
+  console.log(
+    `{total: ${
+      countLetterAe + countLetterO + countLetterAo
+    }, ${logLetterAe}${logLetterO}${logLetterAo}}`
+  );
 }
 findDanishLetters(danishString); // returns {total: 1, å: 1}
 
