@@ -44619,3 +44619,11 @@ const moviesRatingHigherThanSix = movies
   .map((movie) => movie.rating);
 
 console.log(moviesRatingHigherThanSix);
+
+const moviesWithKeywords = movies.filter(
+  (movie) =>
+    movie.title.toLowerCase().includes("Surfer".toLowerCase()) ||
+    movie.title.toLowerCase().includes("Alien".toLowerCase()) ||
+    movie.title.toLowerCase().includes("Benjamin".toLowerCase())
+);
+console.log(moviesWithKeywords);
