@@ -44626,4 +44626,21 @@ const moviesWithKeywords = movies.filter(
     movie.title.toLowerCase().includes("Alien".toLowerCase()) ||
     movie.title.toLowerCase().includes("Benjamin".toLowerCase())
 );
-console.log(moviesWithKeywords);
+console.log(moviesWithKeywords.length);
+
+function checkDuplicateWords(string) {
+  let stringArray = string.toLowerCase().split(" ");
+  const duplicateWords = stringArray.filter(
+    (e, i, a) => e.trim() && a.indexOf(e) !== i
+  );
+  if (duplicateWords.length > 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+const moviesWithDuplicatedWordsInTitle = movies.filter(
+  (movie) => checkDuplicateWords(movie.title) === true
+);
+console.log(moviesWithDuplicatedWordsInTitle);
+console.log(checkDuplicateWords("bob1 bob title test"));
