@@ -1,11 +1,20 @@
 console.log("Script loaded");
-
 const products = getAvailableProducts();
 console.log(products);
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", filterProducts);
+function filterProducts(event) {
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(event.target.value)
+  );
+  renderProducts(filteredProducts);
+}
+
 const list = document.querySelector("#list");
 
 function renderProducts(products) {
   // your code here
+  list.innerHTML = "";
   for (let i = 0; i < products.length; i++) {
     const listItem = document.createElement("li");
     const name = document.createElement("h2");
@@ -21,4 +30,4 @@ function renderProducts(products) {
   }
 }
 
-renderProducts(products); // This should create the ul and the li's with the individual products details
+//renderProducts(products); // This should create the ul and the li's with the individual products details
