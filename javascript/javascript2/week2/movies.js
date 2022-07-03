@@ -44643,4 +44643,9 @@ const moviesWithDuplicatedWordsInTitle = movies.filter(
   (movie) => checkDuplicateWords(movie.title) === true
 );
 console.log(moviesWithDuplicatedWordsInTitle);
-console.log(checkDuplicateWords("bob1 bob title test"));
+function average(movies) {
+  const allRatings = movies.map((movie) => movie.rating);
+  const ratingsAverage = allRatings.reduce((a, b) => a + b) / allRatings.length;
+  return ratingsAverage.toFixed(2);
+}
+console.log(average(movies));
