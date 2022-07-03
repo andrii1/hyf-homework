@@ -2,7 +2,9 @@ console.log("Script loaded");
 const products = getAvailableProducts();
 console.log(products);
 const searchInput = document.getElementById("search");
+const maximumPriceInput = document.getElementById("maximumPrice");
 searchInput.addEventListener("input", filterProducts);
+maximumPriceInput.addEventListener("input", filterProducts);
 function filterProducts(event) {
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(event.target.value)

@@ -44628,19 +44628,15 @@ const moviesWithKeywords = movies.filter(
 );
 console.log(moviesWithKeywords.length);
 
-function checkDuplicateWords(string) {
-  let stringArray = string.toLowerCase().split(" ");
+function hasDuplicateWords(string) {
+  let stringArray = string.toLowerCase().split(/[,: ]+/);
   const duplicateWords = stringArray.filter(
     (e, i, a) => e.trim() && a.indexOf(e) !== i
   );
-  if (duplicateWords.length > 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return duplicateWords.length > 0;
 }
 const moviesWithDuplicatedWordsInTitle = movies.filter(
-  (movie) => checkDuplicateWords(movie.title) === true
+  (movie) => hasDuplicateWords(movie.title) === true
 );
 console.log(moviesWithDuplicatedWordsInTitle);
 function average(movies) {
