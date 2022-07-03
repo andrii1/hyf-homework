@@ -44649,3 +44649,18 @@ function average(movies) {
   return ratingsAverage.toFixed(2);
 }
 console.log(average(movies));
+
+function countMoviesGoodAverageBad(movies) {
+  const goodMovies = movies.reduce(function (n, movie) {
+    return n + (movie.tag == "Good");
+  }, 0);
+  const averageMovies = movies.reduce(function (n, movie) {
+    return n + (movie.tag == "Average");
+  }, 0);
+  const badMovies = movies.reduce(function (n, movie) {
+    return n + (movie.tag == "Bad");
+  }, 0);
+  return `{goodMovies: ${goodMovies}, averageMovies: ${averageMovies}, badMovies: ${badMovies}}`;
+}
+
+console.log(countMoviesGoodAverageBad(moviesWithATag));
