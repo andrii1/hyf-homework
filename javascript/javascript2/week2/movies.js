@@ -44630,13 +44630,11 @@ console.log(moviesWithKeywords.length);
 
 function hasDuplicateWords(string) {
   let stringArray = string.toLowerCase().split(/[,: ]+/);
-  const duplicateWords = stringArray.filter(
-    (e, i, a) => e.trim() && a.indexOf(e) !== i
-  );
-  return duplicateWords.length > 0;
+  let uniqueWords = [...new Set(stringArray)];
+  return stringArray.length != uniqueWords.length;
 }
-const moviesWithDuplicatedWordsInTitle = movies.filter(
-  (movie) => hasDuplicateWords(movie.title) === true
+const moviesWithDuplicatedWordsInTitle = movies.filter((movie) =>
+  hasDuplicateWords(movie.title)
 );
 console.log(moviesWithDuplicatedWordsInTitle);
 function average(movies) {
