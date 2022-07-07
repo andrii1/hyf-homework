@@ -45,7 +45,7 @@ function onSuccess(position) {
   divCoordinates.textContent = `This is the latitude ${latitude}, this is the longitude ${longitude})`;
 }
 
-//
+// 6
 let map;
 
 function initMap() {
@@ -68,3 +68,34 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+//7
+const runAfterDelay = (delay, callback) => {
+  setTimeout(callback, delay);
+};
+
+runAfterDelay(5000, function () {
+  console.log("logging text");
+});
+
+//8
+document.addEventListener("click", onClickCheck);
+
+let lastClicked;
+function onClickCheck() {
+  timeNow = new Date().getTime();
+  /*
+  testing in console
+  console.log(lastClicked);
+  console.log(timeNow);
+  console.log(timeNow - lastClicked);
+  */
+  if (timeNow < lastClicked + 500) {
+    // Execute the link action
+    console.log("double click!");
+  } else {
+    console.log("not double click!");
+  }
+
+  lastClicked = timeNow;
+}
