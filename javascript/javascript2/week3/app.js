@@ -32,6 +32,7 @@ const planetLogFunction = (functionname) => {
 };
 
 planetLogFunction(earthLogger);
+planetLogFunction(saturnLogger);
 
 buttonLogLocation.addEventListener("click", function () {
   // get the current position
@@ -39,7 +40,31 @@ buttonLogLocation.addEventListener("click", function () {
 });
 
 function onSuccess(position) {
-  const { latitude, longitude } = position.coords;
+  let { latitude, longitude } = position.coords;
   console.log(latitude);
   divCoordinates.textContent = `This is the latitude ${latitude}, this is the longitude ${longitude})`;
 }
+
+//
+let map;
+
+function initMap() {
+  const getCoords = () => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      latitude = pos.coords.latitude;
+      longitude = pos.coords.longitude;
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: latitude, lng: longitude },
+        zoom: 8,
+      });
+      let marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map,
+      });
+    });
+  };
+
+  getCoords();
+}
+
+window.initMap = initMap;
