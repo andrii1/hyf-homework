@@ -99,3 +99,28 @@ function onClickCheck() {
 
   lastClicked = timeNow;
 }
+
+//9
+const jokeCreator = (shouldTellFunnyJoke, logFunnyJoke, logBadJoke) => {
+  if (typeof shouldTellFunnyJoke !== "boolean") {
+    throw new Error(`${shouldTellFunnyJoke} should be boolean`);
+  }
+  logFunnyJoke = () => {
+    console.log(
+      `And the bartender says, "Success, but you're not ready!" So a JavaScript function walks into a bar.`
+    );
+  };
+
+  logBadJoke = () => {
+    console.log(`Bad JavaScript joke`);
+  };
+
+  if (shouldTellFunnyJoke === true) {
+    logFunnyJoke();
+  } else if (shouldTellFunnyJoke === false) {
+    logBadJoke();
+  }
+};
+
+jokeCreator(true);
+jokeCreator(false);
