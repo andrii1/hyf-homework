@@ -80,6 +80,8 @@ function startGame() {
     input.value = "";
     showCounterS.innerText = "";
     showCounterL.innerText = "";
+    //restart a game
+    button.innerText = "Start a new game";
   }, timeMs);
 }
 button.addEventListener("click", startGame);
