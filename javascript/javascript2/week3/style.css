@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+
+body {
+  color:#264653;
+  font-family: 'Inconsolata', monospace;
+}
+h1 {
+  font-size:2em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 500px;
+  text-align: center;
+
+}
+
+#input-time {
+  margin:0 0 15px 0;
+}
+
+.box-game {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+  border-top: 2px dotted black;
+}
+.box {
+  flex: 0 0 50%;
+  z-index: 3;
+  position: relative;
+
+}
+
+.player-s {
+
+
+}
+
+span {
+
+  color: #E76F51;
+  padding: 1.5rem;
+  font-size: 1rem;
+  display: inline-block;
+  margin:70px;
+  z-index: 2;
+}
+span.shake {
+  animation: tilt-n-move-shaking 0.8s infinite;
+
+}
+
+.box-press {
+  position: absolute;
+
+
+}
+
+ .l {
+  border-right: 2px dotted black;
+ }
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(5px, 5px) rotate(5deg);
+  }
+
+  50% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+
+  75% {
+    transform: translate(-5px, 5px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+input[type=text] {
+  height: 30px;
+
+}
+
+
+button {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #2A9D8F;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 13px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+button:active {
+  transform: translateY(2px);
+  transition-duration: .35s;
+}
+
+button:hover {
+  box-shadow: rgba(39, 174, 96, .2) 0 6px 12px;
+}
+
+
+
+canvas {
+z-index: 1;
+  position: absolute;
+left:0;
+width:250px;
+height: 250px;
+
+}
+
+#box-winner {
+  margin-top: 20px;
+  font-style: bold;
+  font-size: 30px;
+}
