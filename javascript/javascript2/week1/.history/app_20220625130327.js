@@ -1,0 +1,1 @@
+const input = getElementById("input");

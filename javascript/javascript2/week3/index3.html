@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game - fastest presser</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Fastest presser</h1>
+        <input type="text" id="input-time" placeholder="Set seconds" /><br />
+        <button id="button-start-game">Start game!</button>
+        <div id="box-winner"></div>
+        <div class="box-game" id="box">
+          <div class="box player-s">
+            <canvas id="canvas-s"></canvas>
+            <div class="box-press l">
+              <span class="shake">Press S</span><br />
+              <p id="counter-s"></p>
+            </div>
+          </div>
+          <div class="box player-l">
+            <canvas id="canvas-l"></canvas>
+            <div class="box-press">
+              <span class="shake">Press L</span><br />
+              <p id="counter-l"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="index.min.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
