@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spirit animal name generator</title>
+</head>
+<body>
+  <fieldset style="width: 30%;">
+    <legend>Select how to generate spirit animals</legend>
+
+    <div>
+      <input type="radio" id="clicking-button" name="checkbox" value="clicking-button" checked>
+      <label for="clicking-button">Clicking the button</label>
+    </div>
+
+    <div>
+      <input type="radio" id="hovering" name="checkbox" value="hovering">
+      <label for="hovering">Hovering</label>
+    </div>
+
+    <div>
+      <input type="radio" id="writing-text" name="checkbox" value="writing-text">
+      <label for="writing-text">Text written in the input field</label>
+    </div>
+  </fieldset>
+
+  <form action="#">
+    <input type="text" id="input"><br>
+    <br>
+    <input type="submit" id="button" value="Generate spirit animal">
+  </form>
+  <br>
+  <button id="new-animal">New spirit animal!</button>
+  <div id="display"></div>
+  <script src="app.js"></script>
+</body>
+</html>
