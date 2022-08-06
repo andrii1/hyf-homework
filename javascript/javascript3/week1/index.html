@@ -7,10 +7,17 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <title>Exercise</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style>
+      #map {
+        margin-top: 10px;
+        height: 50vh;
+        width: 40vh;
+      }
+    </style>
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -20,9 +27,15 @@
       </p>
     <![endif]-->
     <input type="text" id="city" />
-    <input type="submit" id="button" />
-    <div class="div" id="display-weather"></div>
+    <input type="submit" id="button" value="Check weather!" />
+    <input
+      type="submit"
+      id="button-current-location"
+      value="Check in current location"
+    />
 
+    <div class="div" id="display-weather"></div>
+    <div id="map"></div>
     <script src="weather.js" async defer></script>
   </body>
 </html>
