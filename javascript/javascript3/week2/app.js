@@ -19,3 +19,46 @@ async function resolveAfterTimeAsync(resolveAfter) {
 }
 
 resolveAfterTimeAsync(5);
+
+//exercise 3 Rewrite time
+//setTimeout as a Promise
+function setTimeoutPromise(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+setTimeoutPromise(3000).then(() => {
+  console.log("Called after 3 seconds");
+});
+
+//currentLocation as a Promise
+const getCurrentLocation = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+getCurrentLocation()
+  .then((position) => {
+    // called when the users position is found
+    console.log(position);
+  })
+  .catch((error) => {
+    // called if there was an error getting the users location
+    console.log(error);
+  });
+
+//Fetching and waiting
+
+function fetchPromise() {
+  return fetch(
+    "https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0ae8d0a4/raw/02d8bc9ec9a73e463b13c44df77a87255def5ab9/movies.json"
+  );
+}
+
+//3 steps
+setTimeoutPromise(3000)
+  .then(fetchPromise)
+  .then((response) => response.json())
+  .then((res) => {
+    console.log(res);
+  });
