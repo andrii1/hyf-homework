@@ -56,9 +56,19 @@ function fetchPromise() {
 }
 
 //3 steps
+//Promise
 setTimeoutPromise(3000)
   .then(fetchPromise)
   .then((response) => response.json())
   .then((res) => {
     console.log(res);
   });
+//async/await
+async function threeSteps() {
+  const timeOut = await setTimeoutPromise(3000);
+  const response = await fetchPromise();
+  const movies = await response.json();
+  console.log(movies);
+}
+
+threeSteps();
