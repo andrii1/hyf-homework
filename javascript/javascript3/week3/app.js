@@ -43,18 +43,14 @@ c1.draw();
 //running every 100ms
 function generateRandom(maxLimit = 100) {
   let rand = Math.random() * maxLimit;
-  console.log(rand); // say 99.81321410836433
-
   rand = Math.floor(rand); // 99
-
   return rand;
 }
 let t = setInterval(drawCircle, 1000);
 let countInterval = 0;
 function drawCircle() {
-  console.log("hello");
   countInterval++;
-  console.log(countInterval);
+
   const x = generateRandom();
   const y = generateRandom();
   const radius = generateRandom();
@@ -65,3 +61,31 @@ function drawCircle() {
     clearInterval(t);
   }
 }
+
+//Promises
+const githubUrls = [
+  "https://api.github.com/search/repositories?q=user:Yuliia-Balandiuk",
+  "https://api.github.com/search/repositories?q=user:patel-prakashkumar",
+  "https://api.github.com/search/repositories?q=user:Hanouj",
+];
+
+const github = document.getElementById("github");
+
+Promise.all(githubUrls.map((u) => fetch(u)))
+  .then((responses) => Promise.all(responses.map((res) => res.json())))
+  .then((githubResponse) => {
+    githubResponse.forEach((user) => {
+      const ul = document.createElement("ul");
+      const liUser = document.createElement("li");
+
+      liUser.innerHTML = `${user.items[0].owner.login}`;
+      ul.appendChild(liUser);
+      user.items.forEach((repo) => {
+        console.log(repo);
+        const liRepository = document.createElement("li");
+        liRepository.innerHTML = `${repo.name} ${repo.url}`;
+        ul.appendChild(liRepository);
+        github.appendChild(ul);
+      });
+    });
+  });
