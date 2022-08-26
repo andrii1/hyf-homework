@@ -1,0 +1,2 @@
+CREATE DATABASE school
+    DEFAULT CHARACTER SET = 'utf8mb4';
