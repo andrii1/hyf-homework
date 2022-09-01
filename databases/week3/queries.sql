@@ -19,3 +19,12 @@ CREATE TABLE `reservation` (
   `contact_email` varchar(255) NOT NULL,
   CONSTRAINT `fk_consultations_meal` FOREIGN KEY (`meal_id`) REFERENCES `meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+CREATE TABLE `review` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `title` varchar(255) NOT NULL,
+  `description` TEXT NOT NULL,
+  `meal_id` int(10) unsigned NOT NULL,
+  `stars` int(10) unsigned NOT NULL,
+  `created_date` DATE NOT NULL,
+  CONSTRAINT `fk_review_meal` FOREIGN KEY (`meal_id`) REFERENCES `meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
