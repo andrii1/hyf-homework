@@ -1,30 +1,67 @@
-CREATE DATABASE meals DEFAULT CHARACTER SET = 'utf8mb4';
-CREATE TABLE `meal` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title` varchar(255) NOT NULL,
-  `description` TEXT NOT NULL,
-  `location` varchar(255) NOT NULL,
-  `when` DATETIME NOT NULL,
-  `max_reservations` int(10) unsigned NOT NULL,
-  `price` DECIMAL(5, 2) NOT NULL,
-  `created_date` DATE NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
-CREATE TABLE `reservation` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `number_of_guests` int(10) unsigned NOT NULL,
-  `meal_id` int(10) unsigned NOT NULL,
-  `created_date` DATE NOT NULL,
-  `contact_phonenumber` varchar(255) NOT NULL,
-  `contact_name` varchar(255) NOT NULL,
-  `contact_email` varchar(255) NOT NULL,
-  CONSTRAINT `fk_consultations_meal` FOREIGN KEY (`meal_id`) REFERENCES `meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
-CREATE TABLE `review` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `title` varchar(255) NOT NULL,
-  `description` TEXT NOT NULL,
-  `meal_id` int(10) unsigned NOT NULL,
-  `stars` int(10) unsigned NOT NULL,
-  `created_date` DATE NOT NULL,
-  CONSTRAINT `fk_review_meal` FOREIGN KEY (`meal_id`) REFERENCES `meal` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+/*Meal*/
+/*Get all meals*/
+SELECT
+  *
+FROM
+  meal
+LIMIT
+  100;
+  /*Add new meal*/
+INSERT INTO
+  meal(
+    id,
+    title,
+    description,
+    location,
+    `when`,
+    max_reservations,
+    price,
+    created_date
+  )
+VALUES(
+    2,
+    'steak',
+    'Steak meal',
+    'Copenhagen',
+    '2022-09-14 00:00:00',
+    3,
+    100,
+    '2022-09-03'
+  )
+  /*Get a meal with any id,
+                fx 1*/
+SELECT
+  *
+FROM
+  meal
+where
+  id = 1
+  /*Update
+            a meal with any id,
+            fx 1.
+          Update
+            any attribute fx the title
+            or multiple attributes*/
+UPDATE
+  meal
+SET
+  description = "tasty belgium fries"
+WHERE
+  id = 1
+  /*Delete a meal with any id,
+      fx 1*/
+DELETE FROM
+  meal
+WHERE
+  id = 2
+  /*Get all reservations*/
+  /*Add
+      a new reservation Get a reservation with any id,
+      fx 1*/
+  /*Update
+      a reservation with any id,
+      fx 1.*/
+  /*Update
+      any attribute fx the title
+      or multiple attributes Delete a reservation with any id,
+      fx 1*/
