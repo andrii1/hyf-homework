@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript 2/Week 3</title>
+    <style>
+      #map {
+        margin-top: 10px;
+        height: 50vh;
+        width: 40vh;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Click</button>
+    <button id="log-location">Log location</button>
+    <div id="coordinates"></div>
+    <div id="map"></div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0_Un3JkolOTMgJ1Btm20ie48DvssnWHE&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script id="app-script" src="app.js"></script>
+  </body>
+</html>
