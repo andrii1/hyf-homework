@@ -10,9 +10,15 @@ app.use(express.json());
 app.get("/search", (req, res) => {
   if (req.query.q) {
     const containsQuery = documents.filter(function (entry) {
-      return entry.description.includes(req.query.q);
+      return (
+        entry.description.includes(req.query.q) ||
+        entry.type.includes(req.query.q)
+      );
     });
-    res.send(containsQuery);
+
+    if (containsQuery) {
+      res.send(containsQuery);
+    }
   } else {
     res.send(documents);
   }
@@ -30,16 +36,20 @@ app.get("/documents/:id", (req, res) => {
 
 //POST /search
 app.post("/search", (req, res) => {
-  const filterBody = req.body.fields;
-
   if (req.query.q && req.body.fields) {
     res.status(404).json({ error: "Bad request" });
-  } else if (filterBody) {
-    const filterByType = req.body.fields.type;
-    const filterResult = documents.filter(function (entry) {
-      return entry.type === filterByType;
+  } else if (req.body.fields.type) {
+    const filter = req.body.fields.type;
+    const filterResults = documents.filter(function (entry) {
+      return entry.type === filter;
     });
-    res.send(filterResult);
+    res.send(filterResults);
+  } else if (req.body.fields.description) {
+    const filter = req.body.fields.description;
+    const filterResults = documents.filter(function (entry) {
+      return entry.type === filter;
+    });
+    res.send(filterResults);
   } else {
     res.status(404).json({ error: "Bad request, request body can't be empty" });
   }
