@@ -1,0 +1,40 @@
+{
+  "capitals": [
+    {
+      "id": "1",
+      "name": "London",
+      "population": "8982000",
+      "country": "United Kingdom"
+    },
+    {
+      "id": "2",
+      "name": "Copenhagen",
+      "population": "602481",
+      "country": "Denmark"
+    },
+    {
+      "id": "3",
+      "name": "Amsterdam",
+      "population": "821752",
+      "country": "Netherlands"
+    },
+    {
+      "id": "4",
+      "name": "Brussels",
+      "population": "2065284",
+      "country": "Belgium"
+    },
+    {
+      "id": "5",
+      "name": "Oslo",
+      "population": "634293",
+      "country": "Norway"
+    },
+    {
+      "id": "6",
+      "name": "Washington",
+      "population": "701974",
+      "country": "USA"
+    }
+  ]
+}
