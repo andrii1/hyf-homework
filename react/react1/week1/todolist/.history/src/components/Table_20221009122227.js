@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ItemRow from "./ItemRow";
 import Header from "./Header";
 const todos = [
@@ -21,7 +20,7 @@ function Table() {
   return (
     <>
       <Header />
-      {todoList.map(({ description, id }) => (
+      {todolist.map(({ description, id }) => (
         <ItemRow description={description} key={id} />
       ))}
     </>

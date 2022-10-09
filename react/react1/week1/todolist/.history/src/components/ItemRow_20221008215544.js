@@ -1,14 +1,11 @@
 import ItemDescription from "./ItemDescription";
-import Checkbox from "./Checkbox";
-import DeleteButton from "./DeleteButton";
+import ItemDeadline from "./ItemDeadline";
 function ItemRow({ description, deadline }) {
   return (
     <li>
       <ItemDescription description={description} />
-      &nbsp;
-      <Checkbox />
-      &nbsp;
-      <DeleteButton />
+      ,&nbsp;
+      <ItemDeadline deadline={deadline} />
     </li>
   );
 }

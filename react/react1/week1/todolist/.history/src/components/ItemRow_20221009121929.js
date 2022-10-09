@@ -5,10 +5,8 @@ function ItemRow({ description, deadline }) {
   return (
     <li>
       <ItemDescription description={description} />
-      &nbsp;
+      ,&nbsp;
       <Checkbox />
-      &nbsp;
-      <DeleteButton />
     </li>
   );
 }

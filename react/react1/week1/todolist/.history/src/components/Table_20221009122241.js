@@ -21,7 +21,7 @@ function Table() {
   return (
     <>
       <Header />
-      {todoList.map(({ description, id }) => (
+      {todolist.map(({ description, id }) => (
         <ItemRow description={description} key={id} />
       ))}
     </>

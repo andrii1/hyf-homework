@@ -1,7 +1,6 @@
-import { useState } from "react";
 import ItemRow from "./ItemRow";
 import Header from "./Header";
-const todos = [
+const items = [
   {
     id: 1,
     description: "Get out of bed",
@@ -17,12 +16,11 @@ const todos = [
 ];
 
 function Table() {
-  const [todoList, setTodoList] = useState(todos);
   return (
     <>
       <Header />
-      {todoList.map(({ description, id }) => (
-        <ItemRow description={description} key={id} />
+      {items.map(({ description, id }) => (
+        <ItemRow description={description} deadline={deadline} key={id} />
       ))}
     </>
   );
