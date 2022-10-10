@@ -18,11 +18,18 @@ const todos = [
 
 function Table() {
   const [todoList, setTodoList] = useState(todos);
+  function deleteCounter(deleteId) {
+    setTodoList(todoList.filter(({ id }) => id !== deleteId));
+  }
   return (
     <>
       <Header />
       {todoList.map(({ description, id }) => (
-        <ItemRow description={description} key={id} />
+        <ItemRow
+          description={description}
+          key={id}
+          onDelete={() => deleteCounter(id)}
+        />
       ))}
     </>
   );
