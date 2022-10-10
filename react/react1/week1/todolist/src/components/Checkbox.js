@@ -1,7 +1,7 @@
-function Checkbox() {
+function Checkbox({ changeStatus }) {
   return (
     <>
-      <input type="checkbox"></input>
+      <input type="checkbox" onChange={changeStatus}></input>
     </>
   );
 }
