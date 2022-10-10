@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import ItemRow from "./ItemRow";
 import Header from "./Header";
 const todos = [
@@ -21,6 +22,7 @@ const todos = [
 
 function Table() {
   const [todoList, setTodoList] = useState(todos);
+  const [count, setCount] = useState(0);
   function deleteCounter(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
   }
@@ -31,21 +33,41 @@ function Table() {
       }
       return obj;
     });
-    console.log(newState);
+
     setTodoList(newState);
   }
+
+  function addTodo() {
+    setTodoList(
+      todoList.concat([
+        { id: todoList.length + 1, description: "random text", done: false },
+      ])
+    );
+    // console.log(counters);
+  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((c) => c + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
-      <Header />
-      {todoList.map(({ description, id, done }) => (
-        <ItemRow
-          description={description}
-          key={id}
-          onDelete={() => deleteCounter(id)}
-          changeStatus={() => changeStatus(id)}
-          className={done ? "striked" : ""}
-        />
-      ))}
+      <Header count={count} addTodo={() => addTodo()} />
+      {todoList.length === 0 ? (
+        <p>No items</p>
+      ) : (
+        todoList.map(({ description, id, done }) => (
+          <ItemRow
+            description={description}
+            key={id}
+            onDelete={() => deleteCounter(id)}
+            changeStatus={() => changeStatus(id)}
+            className={done ? "striked" : ""}
+          />
+        ))
+      )}
     </>
   );
 }
