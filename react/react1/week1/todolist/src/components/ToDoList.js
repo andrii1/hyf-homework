@@ -6,19 +6,19 @@ const todos = [
   {
     id: 1,
     description: "Get out of bed",
-    date: 21 / 10 / 2022,
+    deadline: "21-10-2022",
     done: false,
   },
   {
     id: 2,
     description: "Brush teeth",
-    date: 21 / 10 / 2022,
+    deadline: "21-10-2022",
     done: false,
   },
   {
     id: 3,
     description: "Eat breakfast",
-    date: 21 / 10 / 2022,
+    deadline: "21-10-2022",
     done: false,
   },
 ];
@@ -27,7 +27,8 @@ function ToDoList() {
   const [todoList, setTodoList] = useState(todos);
   const [count, setCount] = useState(0);
   const [todoitem, setTodoitem] = useState("");
-
+  const [startDate, setStartDate] = useState(new Date());
+  console.log(startDate);
   function deleteCounter(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
   }
@@ -45,10 +46,15 @@ function ToDoList() {
   function addTodo() {
     setTodoList(
       todoList.concat([
-        { id: todoList.length + 1, description: todoitem, done: false },
+        {
+          id: todoList.length + 1,
+          description: todoitem,
+          deadline: startDate.toISOString().slice(0, 10),
+          done: false,
+        },
       ])
     );
-    // console.log(counters);
+    console.log(todoList);
   }
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,17 +70,20 @@ function ToDoList() {
         addTodo={() => addTodo()}
         addItemText={(e) => setTodoitem(e.target.value)}
         value={todoitem}
+        startDate={startDate}
+        datepicker={(date) => setStartDate(date)}
       />
       {todoList.length === 0 ? (
         <p>No items</p>
       ) : (
-        todoList.map(({ description, id, done }) => (
+        todoList.map(({ description, id, deadline, done }) => (
           <ItemRow
             description={description}
             key={id}
             onDelete={() => deleteCounter(id)}
             changeStatus={() => changeStatus(id)}
             className={done ? "striked" : ""}
+            deadline={deadline}
           />
         ))
       )}
