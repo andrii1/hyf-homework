@@ -8,18 +8,21 @@ const todos = [
     description: "Get out of bed",
     deadline: "21-10-2022",
     done: false,
+    editing: false,
   },
   {
     id: 2,
     description: "Brush teeth",
     deadline: "21-10-2022",
     done: false,
+    editing: false,
   },
   {
     id: 3,
     description: "Eat breakfast",
     deadline: "21-10-2022",
     done: false,
+    editing: false,
   },
 ];
 
@@ -27,10 +30,33 @@ function ToDoList() {
   const [todoList, setTodoList] = useState(todos);
   const [count, setCount] = useState(0);
   const [todoitem, setTodoitem] = useState("");
+  const [updateditem, setUpdateditem] = useState("");
   const [startDate, setStartDate] = useState(new Date());
-  console.log(startDate);
-  function deleteCounter(deleteId) {
+
+  function deleteItem(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
+  }
+
+  function editItem(editId) {
+    const newState = todoList.map((obj) => {
+      if (obj.id === editId) {
+        return { ...obj, editing: !obj.editing };
+      }
+      return obj;
+    });
+
+    setTodoList(newState);
+  }
+
+  function updateItem(updateId) {
+    const newState = todoList.map((obj) => {
+      if (obj.id === updateId) {
+        return { ...obj, description: updateditem, editing: !obj.editing };
+      }
+      return obj;
+    });
+
+    setTodoList(newState);
   }
   function changeStatus(doneId) {
     const newState = todoList.map((obj) => {
@@ -76,14 +102,19 @@ function ToDoList() {
       {todoList.length === 0 ? (
         <p>No items</p>
       ) : (
-        todoList.map(({ description, id, deadline, done }) => (
+        todoList.map(({ description, id, deadline, done, editing }) => (
           <ItemRow
             description={description}
             key={id}
-            onDelete={() => deleteCounter(id)}
+            onDelete={() => deleteItem(id)}
+            onEdit={() => editItem(id)}
+            onUpdate={() => updateItem(id)}
             changeStatus={() => changeStatus(id)}
             className={done ? "striked" : ""}
             deadline={deadline}
+            value={updateditem}
+            editing={editing ? true : false}
+            updateItemText={(e) => setUpdateditem(e.target.value)}
           />
         ))
       )}
