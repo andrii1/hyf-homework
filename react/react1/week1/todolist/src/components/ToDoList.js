@@ -23,6 +23,7 @@ const todos = [
 function Table() {
   const [todoList, setTodoList] = useState(todos);
   const [count, setCount] = useState(0);
+  const [todoitem, setTodoitem] = useState("");
   function deleteCounter(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
   }
@@ -40,7 +41,7 @@ function Table() {
   function addTodo() {
     setTodoList(
       todoList.concat([
-        { id: todoList.length + 1, description: "random text", done: false },
+        { id: todoList.length + 1, description: todoitem, done: false },
       ])
     );
     // console.log(counters);
@@ -54,7 +55,12 @@ function Table() {
   }, []);
   return (
     <>
-      <Header count={count} addTodo={() => addTodo()} />
+      <Header
+        count={count}
+        addTodo={() => addTodo()}
+        addItemText={(e) => setTodoitem(e.target.value)}
+        value={todoitem}
+      />
       {todoList.length === 0 ? (
         <p>No items</p>
       ) : (
