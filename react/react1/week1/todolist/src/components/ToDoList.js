@@ -6,24 +6,28 @@ const todos = [
   {
     id: 1,
     description: "Get out of bed",
+    date: 21 / 10 / 2022,
     done: false,
   },
   {
     id: 2,
     description: "Brush teeth",
+    date: 21 / 10 / 2022,
     done: false,
   },
   {
     id: 3,
     description: "Eat breakfast",
+    date: 21 / 10 / 2022,
     done: false,
   },
 ];
 
-function Table() {
+function ToDoList() {
   const [todoList, setTodoList] = useState(todos);
   const [count, setCount] = useState(0);
   const [todoitem, setTodoitem] = useState("");
+
   function deleteCounter(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
   }
@@ -78,4 +82,4 @@ function Table() {
   );
 }
 
-export default Table;
+export default ToDoList;
