@@ -93,7 +93,10 @@ function ToDoList() {
         value={todoitem}
         startDate={startDate}
         datepicker={(date) => setStartDate(date)}
-      />
+      >
+        <h1>To do list</h1>
+        <p>You have used {count} seconds on this website</p>
+      </Header>
       {todoList.length === 0 ? (
         <p>No items</p>
       ) : (
