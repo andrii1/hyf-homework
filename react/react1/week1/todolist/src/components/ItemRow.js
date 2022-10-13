@@ -1,4 +1,5 @@
 import ItemDescription from "./ItemDescription";
+import PropTypes from "prop-types";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
@@ -13,7 +14,6 @@ function ItemRow({
   editing,
   updateItemText,
   onUpdate,
-  value,
 }) {
   return (
     <li>
@@ -41,5 +41,8 @@ function ItemRow({
     </li>
   );
 }
-
+ItemRow.propTypes = {
+  description: PropTypes.string,
+  updateItemText: PropTypes.string,
+};
 export default ItemRow;
