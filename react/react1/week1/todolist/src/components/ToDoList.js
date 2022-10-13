@@ -2,37 +2,32 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ItemRow from "./ItemRow";
 import Header from "./Header";
-const todos = [
-  {
-    id: 1,
-    description: "Get out of bed",
-    deadline: "21-10-2022",
-    done: false,
-    editing: false,
-  },
-  {
-    id: 2,
-    description: "Brush teeth",
-    deadline: "21-10-2022",
-    done: false,
-    editing: false,
-  },
-  {
-    id: 3,
-    description: "Eat breakfast",
-    deadline: "21-10-2022",
-    done: false,
-    editing: false,
-  },
-];
+const API_URL =
+  "https://gist.githubusercontent.com/benna100/391eee7a119b50bd2c5960ab51622532/raw";
 
 function ToDoList() {
-  const [todoList, setTodoList] = useState(todos);
+  const [todoList, setTodoList] = useState("");
   const [count, setCount] = useState(0);
   const [todoitem, setTodoitem] = useState("");
   const [updateditem, setUpdateditem] = useState("");
   const [startDate, setStartDate] = useState(new Date());
-
+  const fetchList = async () => {
+    const response = await fetch(API_URL);
+    const items = await response.json();
+    setTodoList(
+      items.map(({ id, description, deadline }) => ({
+        id: id,
+        description: description,
+        deadline: deadline,
+        done: false,
+        editing: false,
+      }))
+    );
+  };
+  useEffect(() => {
+    fetchList();
+  }, []);
+  console.log(todoList);
   function deleteItem(deleteId) {
     setTodoList(todoList.filter(({ id }) => id !== deleteId));
   }
