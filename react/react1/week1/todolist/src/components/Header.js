@@ -1,11 +1,23 @@
 import AddTodo from "./AddTodo";
-function Header({ count, addTodo }) {
+function Header({
+  children,
+  addTodo,
+  addItemText,
+  value,
+  startDate,
+  datepicker,
+}) {
   return (
-    <>
-      <h1>To do list</h1>
-      <p>You have used {count} seconds on this website</p>
-      <AddTodo addTodo={addTodo} />
-    </>
+    <div className="header">
+      {children}
+      <AddTodo
+        addTodo={addTodo}
+        addItemText={addItemText}
+        value={value}
+        startDate={startDate}
+        datepicker={datepicker}
+      />
+    </div>
   );
 }
 
